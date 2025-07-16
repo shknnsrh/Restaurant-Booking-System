@@ -1,6 +1,6 @@
 BASIC STEPS
 
- 1.Import food_ordering.sql
+1.Import food_ordering.sql
 2.save api.php at htdocs(xampp)
 3.run ProjectDAD(server part)
 4.run DADProject(client part-customer)
