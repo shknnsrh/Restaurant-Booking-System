@@ -1,0 +1,12 @@
+✔ Order Confirmed!
+
+Transaction ID: TXN1752604813584
+Time: 2025-07-16T02:40:13.584235500
+Payment Method: Credit/Debit Card
+----------------------------------------
+Mee Goreng Mamak x1 - RM 5.50
+Nasi Lemak Telur x1 - RM 4.50
+Sirap Bandung x1 - RM 2.20
+Teh O Ais x1 - RM 1.80
+----------------------------------------
+Total: RM 14.00
