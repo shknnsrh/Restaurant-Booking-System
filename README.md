@@ -1,7 +1,7 @@
 BASIC STEPS
 
 1.Import food_ordering.sql
-2.Letak api.php kt htdocs(xampp)
+2.save api.php at htdocs(xampp)
 3.run ProjectDAD(server part)
 4.run DADProject(client part-customer)
 5.run DADProjectKitchen (client part-kitchen)
@@ -9,7 +9,7 @@ BASIC STEPS
 how to import file?
 
 1. import file one by one.
-2. in eclipse > file > import > existing project into workspace > pilih file (exp : ProjectDAD)
+2. in eclipse > file > import > existing project into workspace > choose file (exp : ProjectDAD)
 3. do step 2 for the remaining files (DADProject and DADProjectKitchen)
 
 how to run the system?
