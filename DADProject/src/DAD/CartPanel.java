@@ -2,14 +2,8 @@ package DAD;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URI;
-import java.net.URL;
 import java.util.List;
 import java.util.function.Consumer;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 public class CartPanel extends JPanel {
     private static final long serialVersionUID = 1L;
@@ -46,8 +40,8 @@ public class CartPanel extends JPanel {
 
             JPanel itemCard = new JPanel(new BorderLayout(10, 10));
             itemCard.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(new Color(200, 200, 200)),
-                BorderFactory.createEmptyBorder(5, 10, 5, 10)
+                    BorderFactory.createLineBorder(new Color(200, 200, 200)),
+                    BorderFactory.createEmptyBorder(5, 10, 5, 10)
             ));
             itemCard.setMaximumSize(new Dimension(Integer.MAX_VALUE, 50));
             itemCard.setBackground(new Color(245, 245, 245));
@@ -116,49 +110,16 @@ public class CartPanel extends JPanel {
                 return;
             }
 
-            try {
-                URL url = URI.create("http://localhost/api.php").toURL();
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setRequestMethod("POST");
-                conn.setRequestProperty("Content-Type", "application/json");
-                conn.setDoOutput(true);
+            // Navigate directly to PaymentPanel without sending to kitchen
+            JOptionPane.showMessageDialog(this, "Order confirmed.");
 
-                JSONArray jsonArray = new JSONArray();
-                for (FoodSystem.CartItem item : cartItems) {
-                    JSONObject obj = new JSONObject();
-                    obj.put("item_id", item.getId());
-                    obj.put("quantity", item.getQuantity());
-                    jsonArray.put(obj);
-                }
-
-                JSONObject payload = new JSONObject();
-                payload.put("action", "insert_cart");
-                payload.put("items", jsonArray);
-
-                try (OutputStream os = conn.getOutputStream()) {
-                    byte[] input = payload.toString().getBytes("utf-8");
-                    os.write(input, 0, input.length);
-                }
-
-                int responseCode = conn.getResponseCode();
-                if (responseCode == HttpURLConnection.HTTP_OK) {
-                    JOptionPane.showMessageDialog(this, "Order Confirmed!");
-                    if (parentFrame instanceof Main) {
-                        ((Main) parentFrame).openPaymentPanel(cartItems, total[0]);
-                    } else {
-                        JOptionPane.showMessageDialog(this,
-                                "Cannot navigate to PaymentPanel - unexpected parent frame.",
-                                "Navigation Error",
-                                JOptionPane.ERROR_MESSAGE);
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(this,
-                            "Error: Server returned " + responseCode,
-                            "Order Failed",
-                            JOptionPane.ERROR_MESSAGE);
-                }
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+            if (parentFrame instanceof Main) {
+                ((Main) parentFrame).openPaymentPanel(cartItems, total[0]);
+            } else {
+                JOptionPane.showMessageDialog(this,
+                        "Cannot navigate to PaymentPanel - unexpected parent frame.",
+                        "Navigation Error",
+                        JOptionPane.ERROR_MESSAGE);
             }
         });
 
