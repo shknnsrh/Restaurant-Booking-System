@@ -59,11 +59,10 @@ public class Main extends JFrame {
 
         btnFood.addActionListener(e -> openFoodSystem());
         btnCart.addActionListener(e -> openCartPanel());
-       btnPayment.addActionListener(e -> {
+        btnPayment.addActionListener(e -> {
             double total = calculateTotal();
             openPaymentPanel(cartItems, total);
         });
-
         btnStatus.addActionListener(e -> openOrderStatusPanel());
 
         getContentPane().add(navPanel, BorderLayout.WEST);
@@ -102,7 +101,8 @@ public class Main extends JFrame {
         contentPanel.repaint();
     }
 
-     private double calculateTotal() {
+
+    private double calculateTotal() {
         return cartItems.stream().mapToDouble(item -> item.getPrice() * item.getQuantity()).sum();
-    }
+    }
 }
