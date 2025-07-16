@@ -1,0 +1,9 @@
+✔ Order Confirmed!
+
+Transaction ID: TXN1752600351695
+Time: 2025-07-16T01:25:51.695353600
+Payment Method: Cash
+----------------------------------------
+Mee Goreng Mamak x1 - RM 5.50
+----------------------------------------
+Total: RM 5.50
