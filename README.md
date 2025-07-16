@@ -18,6 +18,8 @@ how to run the system?
 2. run MainKitchen.java (this file can be found in DADProjectKitchen- Kitchen/Client
 3. run Main.java (this file can be found in DADProject) - Customer/Client
 
+*Note: Dont forget to insert json.jar into the build path.
+
 THE SYSTEM IS WORKING PERFECTLY!!
 
 
